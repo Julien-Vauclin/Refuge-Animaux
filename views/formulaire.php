@@ -57,6 +57,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" class="form-control" id="nom" name="nom" value="<?php echo htmlspecialchars($nom); ?>">
             <div class="text-danger"><?php echo $nom_err; ?></div>
         </div>
+        <!-- Bouton puce -->
+        <div class="radiopuce text-start">
+            <h3 class="titreform d-inline">Pucé</h3>
+            <div class="divpuce d-inline">
+                <div class="boutonpuce ms-2 d-inline">
+                    <input type="radio" id="ouiradio" name="funradio" value="oui" checked>
+                    <label for="oui">Oui</label>
+                </div>
+                <div class="boutonpuce ms-2 d-inline">
+                    <input type="radio" id="nonradio" name="funradio" value="non">
+                    <label for="non">Non</label>
+                </div>
+            </div>
+        </div>
+        <!-- Bouton tatouage -->
+        <div class="radiopuce text-start">
+            <h3 class="titreform d-inline">Tatoué</h3>
+            <div class="divpuce d-inline">
+                <div class="boutonpuce ms-2 d-inline">
+                    <input type="radio" id="ouiradio" name="tattooradio" value="oui" checked>
+                    <label for="oui">Oui</label>
+                </div>
+                <div class="boutonpuce ms-2 d-inline">
+                    <input type="radio" id="nonradio" name="tattooradio" value="non">
+                    <label for="non">Non</label>
+                </div>
+            </div>
+        </div>
         <div class="mb-3 titreform">
             <label for="couleur" class="form-label">Couleur:</label>
             <input type="text" class="form-control" id="couleur" name="couleur" value="<?php echo htmlspecialchars($couleur); ?>">

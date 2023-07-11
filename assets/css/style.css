@@ -194,4 +194,9 @@ button.cmn_btn {
 }
 .titreform{
   text-align: left;
+  font-size: 17.5px;
+}
+.radiopuce{
+  margin-top: 48px;
+  margin-bottom: 28px;
 }
