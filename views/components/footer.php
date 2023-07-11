@@ -1,8 +1,8 @@
-<footer class="fixed-bottom navbarre bg-light text-center text-lg-start">
+<footer class="sticky-bottom navbarre bg-light text-center text-lg-start">
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: #595B83;">
+  <div class="text-center p-3 fouteur" style="background-color: #595B83;">
     © 2023 Copyright:
-    <a class="text-dark" href="https://mdbootstrap.com/">NotBB.com</a>
+    <a class="fouteur" href="https://mdbootstrap.com/">NotBB.com</a>
   </div>
   <!-- Copyright -->
 </footer>

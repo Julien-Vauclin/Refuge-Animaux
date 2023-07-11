@@ -9,7 +9,8 @@ $nom = $couleur = $race = $espece = $age = $date_naissance = "";
 $nom_err = $couleur_err = $race_err = $espece_err = $age_err = $date_naissance_err = "";
 
 // Fonction de validation des champs avec des expressions régulières
-function validerChamp($champ, $regex, &$valeur, &$erreur) {
+function validerChamp($champ, $regex, &$valeur, &$erreur)
+{
     if (!empty($champ)) {
         if (preg_match($regex, $champ)) {
             $valeur = $champ;
@@ -32,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $espece_regex = "/^(?!.*(.)\1\1)[a-zA-Z]{3,}$/";
     $age_regex = "/^\d+$/";
     $date_naissance_regex = "/^\d{2}\/\d{2}\/\d{2}$/";
-    
+
     validerChamp($_POST["nom"], $nom_regex, $nom, $nom_err);
     validerChamp($_POST["couleur"], $couleur_regex, $couleur, $couleur_err);
     validerChamp($_POST["race"], $race_regex, $race, $race_err);
@@ -48,42 +49,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-    <div class="container">
-        <h2>Réservation Spa</h2>
-        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <div class="mb-3">
-                <label for="nom" class="form-label">Nom de l'animal:</label>
-                <input type="text" class="form-control" id="nom" name="nom" value="<?php echo htmlspecialchars($nom); ?>">
-                <div class="text-danger"><?php echo $nom_err; ?></div>
-            </div>
-            <div class="mb-3">
-                <label for="couleur" class="form-label">Couleur:</label>
-                <input type="text" class="form-control" id="couleur" name="couleur" value="<?php echo htmlspecialchars($couleur); ?>">
-                <div class="text-danger"><?php echo $couleur_err; ?></div>
-            </div>
-            <div class="mb-3">
-                <label for="race" class="form-label">Race:</label>
-                <input type="text" class="form-control" id="race" name="race" value="<?php echo htmlspecialchars($race); ?>">
-                <div class="text-danger"><?php echo $race_err; ?></div>
-            </div>
-            <div class="mb-3">
-                <label for="espece" class="form-label">Espèce:</label>
-                <input type="text" class="form-control" id="espece" name="espece" value="<?php echo htmlspecialchars($espece); ?>">
-                <div class="text-danger"><?php echo $espece_err; ?></div>
-            </div>
-            <div class="mb-3">
-                <label for="age" class="form-label">Âge:</label>
-                <input type="text" class="form-control" id="age" name="age" value="<?php echo htmlspecialchars($age); ?>">
-                <div class="text-danger"><?php echo $age_err; ?></div>
-            </div>
-            <div class="mb-3">
-                <label for="date_naissance" class="form-label">Date de naissance:</label>
-                <input type="text" class="form-control" id="date_naissance" name="date_naissance" value="<?php echo htmlspecialchars($date_naissance); ?>">
-                <div class="text-danger"><?php echo $date_naissance_err; ?></div>
-            </div>
-            <button type="submit" class="btn btn-primary">Envoyer</button>
-        </form>
-    </div>
+<div class="container">
+    <h2>Réservation Spa</h2>
+    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <div class="mb-3 titreform">
+            <label for="nom" class="form-label">Nom de l'animal:</label>
+            <input type="text" class="form-control" id="nom" name="nom" value="<?php echo htmlspecialchars($nom); ?>">
+            <div class="text-danger"><?php echo $nom_err; ?></div>
+        </div>
+        <div class="mb-3 titreform">
+            <label for="couleur" class="form-label">Couleur:</label>
+            <input type="text" class="form-control" id="couleur" name="couleur" value="<?php echo htmlspecialchars($couleur); ?>">
+            <div class="text-danger"><?php echo $couleur_err; ?></div>
+        </div>
+        <div class="mb-3 titreform">
+            <label for="race" class="form-label">Race:</label>
+            <input type="text" class="form-control" id="race" name="race" value="<?php echo htmlspecialchars($race); ?>">
+            <div class="text-danger"><?php echo $race_err; ?></div>
+        </div>
+        <div class="mb-3 titreform">
+            <label for="espece" class="form-label">Espèce:</label>
+            <input type="text" class="form-control" id="espece" name="espece" value="<?php echo htmlspecialchars($espece); ?>">
+            <div class="text-danger"><?php echo $espece_err; ?></div>
+        </div>
+        <div class="mb-3 titreform">
+            <label for="age" class="form-label">Âge:</label>
+            <input type="text" class="form-control" id="age" name="age" value="<?php echo htmlspecialchars($age); ?>">
+            <div class="text-danger"><?php echo $age_err; ?></div>
+        </div>
+        <div class="mb-3 titreform">
+            <label for="date_naissance" class="form-label">Date de naissance:</label>
+            <input type="text" class="form-control" id="date_naissance" name="date_naissance" value="<?php echo htmlspecialchars($date_naissance); ?>">
+            <div class="text-danger"><?php echo $date_naissance_err; ?></div>
+        </div>
+        <button type="submit" class="btn boutonform">Envoyer</button>
+    </form>
+</div>
 
 
 

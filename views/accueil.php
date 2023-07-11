@@ -6,7 +6,9 @@
     <div class="row">
       <div class="banner_content">
         <h1>Sqilet Animalerie</h1>
-        <button class="cmn_btn">Voir la listes des animaux</button>
+        <a href="../controllers/controller-liste.php">
+          <button class="cmn_btn">Voir la listes des animaux</button>
+        </a>
       </div>
       <div class="box_content">
         <div class="d-flex justify-content-center">
@@ -36,12 +38,14 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6">
-        <img src="https://lemagduchat.ouest-france.fr/images/dossiers/2023-06/mini/chat-cinema-061232-650-400.jpg" alt="" width="75%">
+        <img src="../assets/img/image10.jpg" alt="" width="75%">
       </div>
       <div class="col-lg-6 align-self-center">
         <h4>Chat</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <button type="button" class="btn btn-dark">Adopter</button>
+        <p>Préparez-vous à succomber au charme félin et à ouvrir votre cœur à un amour inconditionnel. Adoptez un chat, et laissez la magie opérer !</p>
+        <a href="../controllers/controller-liste.php">
+          <button type="button" class="btn bouton">Adopter</button>
+        </a>
       </div>
     </div>
   </div>
@@ -51,13 +55,25 @@
 <div class="cakes_for_special_events p-5 text-center test">
   <div class="container">
     <div class="row">
-      <div class="col-lg-6 align-self-center">
+      <div class="col-lg-6 align-self-center grandtextechien">
         <h4>Chien</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <button type="button" class="btn btn-dark">Adopter</button>
+        <p>Êtes-vous prêt à accueillir dans votre foyer la joie débordante, l'affection inconditionnelle et la fidélité sans faille d'un compagnon canin ? Adoptez un chien, et laissez votre vie être éclairée par son amour incommensurable !</p>
+        <a href="../controllers/controller-liste.php">
+          <button type="button" class="btn bouton">Adopter</button>
+        </a>
       </div>
-      <div class="col-lg-6">
-        <img src="https://www.woopets.fr/assets/img/001/244/1200x675/choisir-chien-japonais.jpg" alt="" width="75%">
+      <div class="imagegrand col-lg-6">
+        <img src="../assets/img/image3.jpg" alt="" width="75%">
+      </div>
+      <div class="imagepetit col-lg-6">
+        <img src="../assets/img/image3.jpg" alt="" width="75%">
+      </div>
+      <div class="col-lg-6 align-self-center petittextechien">
+        <h4>Chien</h4>
+        <p>Êtes-vous prêt à accueillir dans votre foyer la joie débordante, l'affection inconditionnelle et la fidélité sans faille d'un compagnon canin ? Adoptez un chien, et laissez votre vie être éclairée par son amour incommensurable !</p>
+        <a href="../controllers/controller-liste.php">
+          <button type="button" class="btn bouton">Adopter</button>
+        </a>
       </div>
     </div>
   </div>

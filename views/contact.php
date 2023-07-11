@@ -9,7 +9,8 @@ $successMessage = "";
 // Vérifier si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Fonction pour nettoyer et valider les entrées utilisateur
-    function cleanInput($input) {
+    function cleanInput($input)
+    {
         $input = trim($input);
         $input = stripslashes($input);
         $input = htmlspecialchars($input);
@@ -47,40 +48,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-    <div class="container mt-5">
-        <h1>Contactez-nous</h1>
+<div class="container mt-5">
+    <h1>Contactez-nous</h1>
 
-        <?php if (!empty($errors)): ?>
-            <div class="alert alert-danger">
-                <ul>
-                    <?php foreach ($errors as $error): ?>
-                        <li><?php echo $error; ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        <?php endif; ?>
+    <?php if (!empty($errors)) : ?>
+        <div class="alert alert-danger">
+            <ul>
+                <?php foreach ($errors as $error) : ?>
+                    <li><?php echo $error; ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
 
-        <?php if (!empty($successMessage)): ?>
-            <div class="alert alert-success"><?php echo $successMessage; ?></div>
-        <?php endif; ?>
+    <?php if (!empty($successMessage)) : ?>
+        <div class="alert alert-success"><?php echo $successMessage; ?></div>
+    <?php endif; ?>
 
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-            <div class="mb-3">
-                <label for="name" class="form-label">Nom</label>
-                <input type="text" class="form-control" id="name" name="name" value="<?php echo isset($name) ? $name : ''; ?>">
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Adresse e-mail</label>
-                <input type="email" class="form-control" id="email" name="email" value="<?php echo isset($email) ? $email : ''; ?>">
-            </div>
-            <div class="mb-3">
-                <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" id="message" name="message"><?php echo isset($message) ? $message : ''; ?></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Envoyer</button>
-        </form>
-    </div>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="name" name="name" value="<?php echo isset($name) ? $name : ''; ?>">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Adresse e-mail</label>
+            <input type="email" class="form-control" id="email" name="email" value="<?php echo isset($email) ? $email : ''; ?>">
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message"><?php echo isset($message) ? $message : ''; ?></textarea>
+        </div>
+        <button type="submit" class="btn bouton">Envoyer</button>
+    </form>
+</div>
 
 
 
-<?php include "components/footer.php" ?>
+<?php include "components/footercontact.php" ?>
