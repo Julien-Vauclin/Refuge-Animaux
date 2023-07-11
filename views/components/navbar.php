@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark" style="background-color:#595B83">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="../controllers/controller-accueil.php">
       <img src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2018/12/1888e16b-ff1c-419e-8d29-7e88bc48c9c6-e1554105351216.jpg?auto=format&q=60&fit=max&w=930" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

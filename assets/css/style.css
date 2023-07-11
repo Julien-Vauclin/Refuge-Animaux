@@ -138,3 +138,10 @@ button.cmn_btn {
   width: 100%;
   height: auto;
 }
+.container{
+  margin-top: 40px;
+  text-align: center;
+}
+.cartes{
+  margin-top: 90px;
+}
