@@ -1,4 +1,4 @@
-<footer class="bg-light text-center text-lg-start">
+<footer class="fixed-bottom navbarre bg-light text-center text-lg-start">
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: #595B83;">
     © 2023 Copyright:

@@ -42,7 +42,6 @@
                     <?php
                     afficherPhoto($animal['ID']);
                     ?>
-
                     <p class="card-text"><strong>Couleur :</strong> <?= $animal['Couleur'] ?> </p>
                     <p class="card-text"><strong>Race :</strong> <?= $animal['Race'] ?> </p>
                     <p class="card-text"><strong>Sexe :</strong> <?= $animal['Sexe'] ?> </p>

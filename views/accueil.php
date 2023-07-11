@@ -48,7 +48,7 @@
 </div>
 
 <!-- Cakes for Special Events area start here -->
-<div class="cakes_for_special_events p-5 text-center">
+<div class="cakes_for_special_events p-5 text-center test">
   <div class="container">
     <div class="row">
       <div class="col-lg-6 align-self-center">
@@ -57,7 +57,7 @@
         <button type="button" class="btn btn-dark">Adopter</button>
       </div>
       <div class="col-lg-6">
-        <img src="https://www.woopets.fr/assets/img/001/244/1200x675/choisir-chien-japonais.jpg" alt="" width="75%" >
+        <img src="https://www.woopets.fr/assets/img/001/244/1200x675/choisir-chien-japonais.jpg" alt="" width="75%">
       </div>
     </div>
   </div>
