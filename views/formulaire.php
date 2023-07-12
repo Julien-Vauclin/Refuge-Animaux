@@ -27,17 +27,17 @@ function validerChamp($champ, $regex, &$valeur, &$erreur)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Valider chaque champ avec les expressions régulières
     $nom_regex = "/^(?!.*(.)\1\1)[a-zA-Z]{3,}$/";
-    $couleur_regex = "/^(?!.*(.)\1\1)[a-zA-Z]{3,}$/";
-    $race_regex = "/^(?!.*(.)\1\1)[a-zA-Z]{3,}$/";
-    $espece_regex = "/^(?!.*(.)\1\1)[a-zA-Z]{3,}$/";
+    // $couleur_regex = "/^(?!.*(.)\1\1)[a-zA-Z]{3,}$/";
+    // $race_regex = "/^(?!.*(.)\1\1)[a-zA-Z]{3,}$/";
+    // $espece_regex = "/^(?!.*(.)\1\1)[a-zA-Z]{3,}$/";
     $age_regex = "/^\d+$/";
-    $date_naissance_regex = "/^\d{2}\/\d{2}\/\d{2}$/";
-    $date_arrivee_regex = "/^\d{2}\/\d{2}\/\d{2}$/";
+    $date_naissance_regex = "/^\d{4}-\d{2}-\d{2}$/";
+    $date_arrivee_regex = "/^\d{4}-\d{2}-\d{2}$/";
 
     validerChamp($_POST["nom"], $nom_regex, $nom, $nom_err);
-    validerChamp($_POST["couleur"], $couleur_regex, $couleur, $couleur_err);
-    validerChamp($_POST["race"], $race_regex, $race, $race_err);
-    validerChamp($_POST["espece"], $espece_regex, $espece, $espece_err);
+    // validerChamp($_POST["couleur"], $couleur_regex, $couleur, $couleur_err);
+    // validerChamp($_POST["race"], $race_regex, $race, $race_err);
+    // validerChamp($_POST["espece"], $espece_regex, $espece, $espece_err);
     validerChamp($_POST["age"], $age_regex, $age, $age_err);
     validerChamp($_POST["date_naissance"], $date_naissance_regex, $date_naissance, $date_naissance_err);
     validerChamp($_POST["date_arrivee"], $date_arrivee_regex, $date_arrivee, $date_arrivee_err);
@@ -55,9 +55,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <!-- Nom de l'animal -->
         <div class="mb-3 titreform">
-            <label for="nom" class="form-label">Nom de l'animal:</label>
-            <input type="text" class="form-control" id="nom" name="nom" value="<?php echo htmlspecialchars($nom); ?>">
-            <div class="text-danger"><?php echo $nom_err; ?></div>
+            <label for="nom_animal" class="form-label">Nom de l'animal:</label>
+            <input type="text" class="form-control" id="nom_animal" name="nom_animal" value="<?php echo isset($_POST['nom_animal']) ? htmlspecialchars($_POST['nom_animal']) : ''; ?>">
+            <?php if (isset($nom_animal_err)) : ?>
+                <div class="text-danger"><?php echo $nom_animal_err; ?></div>
+            <?php endif; ?>
         </div>
         <!-- Label age -->
         <div class="mb-3 titreform">
@@ -79,38 +81,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <!-- Select couleur -->
         <div class="mb-3 titreform">
-            <select for="couleur" class="form-label">
-                <option value="" selected disabled>Choisir une couleur</option>
-                <option value="blanc">Blanc</option>
-                <option value="noir">Noir</option>
-                <option value="gris">Gris</option>
-                <option value="brun">Brun</option>
-                <option value="sable">Sable</option>
-                <option value="roux">Roux</option>
+            <select id="couleur" name="couleur">
+                <option value="" disabled>Choisir une couleur</option>
+                <option value="blanc" <?php if (isset($_POST['couleur']) && $_POST['couleur'] === 'blanc') echo 'selected'; ?>>Blanc</option>
+                <option value="noir" <?php if (isset($_POST['couleur']) && $_POST['couleur'] === 'noir') echo 'selected'; ?>>Noir</option>
+                <option value="gris" <?php if (isset($_POST['couleur']) && $_POST['couleur'] === 'gris') echo 'selected'; ?>>Gris</option>
+                <option value="brun" <?php if (isset($_POST['couleur']) && $_POST['couleur'] === 'brun') echo 'selected'; ?>>Brun</option>
+                <option value="sable" <?php if (isset($_POST['couleur']) && $_POST['couleur'] === 'sable') echo 'selected'; ?>>Sable</option>
+                <option value="roux" <?php if (isset($_POST['couleur']) && $_POST['couleur'] === 'roux') echo 'selected'; ?>>Roux</option>
             </select>
         </div>
+
         <!-- Select espèce -->
         <div class="mb-3 titreform">
-            <select id="select1" onchange="updateSelect2()">
-                <option value="" selected disabled>Choisir une espèce</option>
-                <option value="1">Chien</option>
-                <option value="2">Chat</option>
+            <select id="select1" name="espece" onchange="updateSelect2()">
+                <option value="" disabled>Choisir une espèce</option>
+                <option value="1" <?php if (isset($_POST['espece']) && $_POST['espece'] === '1') echo 'selected'; ?>>Chien</option>
+                <option value="2" <?php if (isset($_POST['espece']) && $_POST['espece'] === '2') echo 'selected'; ?>>Chat</option>
             </select>
         </div>
+
         <!-- Select race -->
         <div class="mb-3 titreform">
-            <select id="select2">
-                <option value="" selected disabled>Choisir une race</option>
-                <option value="A" data-group="1">Labrador</option>
-                <option value="B" data-group="1">Bulldog</option>
-                <option value="C" data-group="1">Caniche</option>
-                <option value="D" data-group="1">Chihuahua</option>
-                <option value="E" data-group="1">Yorkshire</option>
-                <option value="F" data-group="2">Maine Coon</option>
-                <option value="G" data-group="2">Bengal</option>
-                <option value="H" data-group="2">Sphynx</option>
-                <option value="I" data-group="2">Siamois</option>
-                <option value="J" data-group="2">Persan</option>
+            <select id="select2" name="race">
+                <option value="" disabled>Choisir une race</option>
+                <option value="A" data-group="1" <?php if (isset($_POST['race']) && $_POST['race'] === 'A') echo 'selected'; ?>>Labrador</option>
+                <option value="B" data-group="1" <?php if (isset($_POST['race']) && $_POST['race'] === 'B') echo 'selected'; ?>>Bulldog</option>
+                <option value="C" data-group="1" <?php if (isset($_POST['race']) && $_POST['race'] === 'C') echo 'selected'; ?>>Caniche</option>
+                <option value="D" data-group="1" <?php if (isset($_POST['race']) && $_POST['race'] === 'D') echo 'selected'; ?>>Chihuahua</option>
+                <option value="E" data-group="1" <?php if (isset($_POST['race']) && $_POST['race'] === 'E') echo 'selected'; ?>>Yorkshire</option>
+                <option value="F" data-group="2" <?php if (isset($_POST['race']) && $_POST['race'] === 'F') echo 'selected'; ?>>Maine Coon</option>
+                <option value="G" data-group="2" <?php if (isset($_POST['race']) && $_POST['race'] === 'G') echo 'selected'; ?>>Bengal</option>
+                <option value="H" data-group="2" <?php if (isset($_POST['race']) && $_POST['race'] === 'H') echo 'selected'; ?>>Sphynx</option>
+                <option value="I" data-group="2" <?php if (isset($_POST['race']) && $_POST['race'] === 'I') echo 'selected'; ?>>Siamois</option>
+                <option value="J" data-group="2" <?php if (isset($_POST['race']) && $_POST['race'] === 'J') echo 'selected'; ?>>Persan</option>
             </select>
         </div>
         <!-- Script qui adapte le select race en fonction du select espece -->
