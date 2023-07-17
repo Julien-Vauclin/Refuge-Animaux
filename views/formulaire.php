@@ -124,11 +124,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 // Ajouter les options en fonction de la sélection
                 if (selectedValue === "1") {
-                    var optionA = new Option("Labrador", "A");
-                    var optionB = new Option("Bulldog", "B");
-                    var optionC = new Option("Caniche", "C");
-                    var optionD = new Option("Chihuahua", "D");
-                    var optionE = new Option("Yorkshire", "E");
+                    var optionA = new Option("Labrador", "1");
+                    var optionB = new Option("Bulldog", "2");
+                    var optionC = new Option("Caniche", "3");
+                    var optionD = new Option("Chihuahua", "4");
+                    var optionE = new Option("Yorkshire", "5");
 
                     select2.add(optionA);
                     select2.add(optionB);
@@ -136,11 +136,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     select2.add(optionD);
                     select2.add(optionE);
                 } else if (selectedValue === "2") {
-                    var optionF = new Option("Maine Coon", "F");
-                    var optionG = new Option("Bengal", "G");
-                    var optionH = new Option("Sphynx", "H");
-                    var optionI = new Option("Siamois", "I");
-                    var optionJ = new Option("Persan", "J");
+                    var optionF = new Option("Maine Coon", "6");
+                    var optionG = new Option("Bengal", "7");
+                    var optionH = new Option("Sphynx", "8");
+                    var optionI = new Option("Siamois", "9");
+                    var optionJ = new Option("Persan", "10");
 
                     select2.add(optionF);
                     select2.add(optionG);
@@ -195,40 +195,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 </div>
 <!-- Connexion à la base de données -->
-<?php
-require_once "../helpers/database.php";
 
-// Obtenez les valeurs du formulaire
-$nom_animal = $_POST['nom_animal'];
-$date_arrivee = $_POST['date_arrivee'];
-$puce = $_POST['funradio'];
-$tatouage = $_POST['tattooradio'];
-$sexe = $_POST['radiosexe'];
-$id_race = $_POST['race'];
-$id_couleur = $_POST['couleur'];
-$id_espece = $_POST['espece'];
-
-try {
-    // Créez une instance de la classe Database
-    $db = new Database();
-
-    // Obtenez une instance de la classe PDO
-    $pdo = $db->createInstancePDO();
-
-    // Requête SQL avec les valeurs
-    $sql = "INSERT INTO animal (Nom, Date_d_arrivee, Puce, Tatouage, Sexe, ID_RACE, ID_COULEUR, ID_ESPECE)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-    // Préparez la requête
-    $stmt = $pdo->prepare($sql);
-
-    // Exécutez la requête avec les valeurs
-    $stmt->execute([$nom_animal, $date_arrivee, $puce, $tatouage, $sexe, $id_race, $id_couleur, $id_espece]);
-
-    echo "L'animal a été inséré avec succès.";
-} catch (PDOException $exception) {
-    echo "Erreur lors de l'insertion de l'animal : " . $exception->getMessage();
-}
-?>
 
 <?php include "components/footer.php" ?>
