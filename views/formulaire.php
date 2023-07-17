@@ -34,11 +34,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date_naissance_regex = "/^\d{4}-\d{2}-\d{2}$/";
     $date_arrivee_regex = "/^\d{4}-\d{2}-\d{2}$/";
 
-    validerChamp($_POST["nom"], $nom_regex, $nom, $nom_err);
+    validerChamp($_POST["nom_animal"], $nom_regex, $nom, $nom_err);
     // validerChamp($_POST["couleur"], $couleur_regex, $couleur, $couleur_err);
     // validerChamp($_POST["race"], $race_regex, $race, $race_err);
     // validerChamp($_POST["espece"], $espece_regex, $espece, $espece_err);
-    validerChamp($_POST["age"], $age_regex, $age, $age_err);
+    // validerChamp($_POST["age"], $age_regex, $age, $age_err);
     validerChamp($_POST["date_naissance"], $date_naissance_regex, $date_naissance, $date_naissance_err);
     validerChamp($_POST["date_arrivee"], $date_arrivee_regex, $date_arrivee, $date_arrivee_err);
 
@@ -61,12 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="text-danger"><?php echo $nom_animal_err; ?></div>
             <?php endif; ?>
         </div>
-        <!-- Label age -->
-        <div class="mb-3 titreform">
-            <label for="age" class="form-label">Âge:</label>
-            <input type="text" class="form-control" id="age" name="age" value="<?php echo htmlspecialchars($age); ?>">
-            <div class="text-danger"><?php echo $age_err; ?></div>
-        </div>
         <!-- Date de naissance -->
         <div class="mb-3 titreform">
             <label for="date_naissance" class="form-label">Date de naissance:</label>
@@ -83,12 +77,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="mb-3 titreform">
             <select id="couleur" name="couleur">
                 <option value="" disabled>Choisir une couleur</option>
-                <option value="blanc" <?php if (isset($_POST['couleur']) && $_POST['couleur'] === 'blanc') echo 'selected'; ?>>Blanc</option>
-                <option value="noir" <?php if (isset($_POST['couleur']) && $_POST['couleur'] === 'noir') echo 'selected'; ?>>Noir</option>
-                <option value="gris" <?php if (isset($_POST['couleur']) && $_POST['couleur'] === 'gris') echo 'selected'; ?>>Gris</option>
-                <option value="brun" <?php if (isset($_POST['couleur']) && $_POST['couleur'] === 'brun') echo 'selected'; ?>>Brun</option>
-                <option value="sable" <?php if (isset($_POST['couleur']) && $_POST['couleur'] === 'sable') echo 'selected'; ?>>Sable</option>
-                <option value="roux" <?php if (isset($_POST['couleur']) && $_POST['couleur'] === 'roux') echo 'selected'; ?>>Roux</option>
+                <option value="1" <?php if (isset($_POST['couleur']) && $_POST['couleur'] === 'blanc') echo 'selected'; ?>>Blanc</option>
+                <option value="2" <?php if (isset($_POST['couleur']) && $_POST['couleur'] === 'noir') echo 'selected'; ?>>Noir</option>
+                <option value="3" <?php if (isset($_POST['couleur']) && $_POST['couleur'] === 'gris') echo 'selected'; ?>>Gris</option>
+                <option value="4" <?php if (isset($_POST['couleur']) && $_POST['couleur'] === 'brun') echo 'selected'; ?>>Brun</option>
+                <option value="5" <?php if (isset($_POST['couleur']) && $_POST['couleur'] === 'sable') echo 'selected'; ?>>Sable</option>
+                <option value="6" <?php if (isset($_POST['couleur']) && $_POST['couleur'] === 'roux') echo 'selected'; ?>>Roux</option>
             </select>
         </div>
 
@@ -105,16 +99,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="mb-3 titreform">
             <select id="select2" name="race">
                 <option value="" disabled>Choisir une race</option>
-                <option value="A" data-group="1" <?php if (isset($_POST['race']) && $_POST['race'] === 'A') echo 'selected'; ?>>Labrador</option>
-                <option value="B" data-group="1" <?php if (isset($_POST['race']) && $_POST['race'] === 'B') echo 'selected'; ?>>Bulldog</option>
-                <option value="C" data-group="1" <?php if (isset($_POST['race']) && $_POST['race'] === 'C') echo 'selected'; ?>>Caniche</option>
-                <option value="D" data-group="1" <?php if (isset($_POST['race']) && $_POST['race'] === 'D') echo 'selected'; ?>>Chihuahua</option>
-                <option value="E" data-group="1" <?php if (isset($_POST['race']) && $_POST['race'] === 'E') echo 'selected'; ?>>Yorkshire</option>
-                <option value="F" data-group="2" <?php if (isset($_POST['race']) && $_POST['race'] === 'F') echo 'selected'; ?>>Maine Coon</option>
-                <option value="G" data-group="2" <?php if (isset($_POST['race']) && $_POST['race'] === 'G') echo 'selected'; ?>>Bengal</option>
-                <option value="H" data-group="2" <?php if (isset($_POST['race']) && $_POST['race'] === 'H') echo 'selected'; ?>>Sphynx</option>
-                <option value="I" data-group="2" <?php if (isset($_POST['race']) && $_POST['race'] === 'I') echo 'selected'; ?>>Siamois</option>
-                <option value="J" data-group="2" <?php if (isset($_POST['race']) && $_POST['race'] === 'J') echo 'selected'; ?>>Persan</option>
+                <option value="1" data-group="1" <?php if (isset($_POST['race']) && $_POST['race'] === '1') echo 'selected'; ?>>Labrador</option>
+                <option value="2" data-group="1" <?php if (isset($_POST['race']) && $_POST['race'] === '2') echo 'selected'; ?>>Bulldog</option>
+                <option value="3" data-group="1" <?php if (isset($_POST['race']) && $_POST['race'] === '3') echo 'selected'; ?>>Caniche</option>
+                <option value="4" data-group="1" <?php if (isset($_POST['race']) && $_POST['race'] === '4') echo 'selected'; ?>>Chihuahua</option>
+                <option value="5" data-group="1" <?php if (isset($_POST['race']) && $_POST['race'] === '5') echo 'selected'; ?>>Yorkshire</option>
+                <option value="6" data-group="2" <?php if (isset($_POST['race']) && $_POST['race'] === '6') echo 'selected'; ?>>Maine Coon</option>
+                <option value="7" data-group="2" <?php if (isset($_POST['race']) && $_POST['race'] === '7') echo 'selected'; ?>>Bengal</option>
+                <option value="8" data-group="2" <?php if (isset($_POST['race']) && $_POST['race'] === '8') echo 'selected'; ?>>Sphynx</option>
+                <option value="9" data-group="2" <?php if (isset($_POST['race']) && $_POST['race'] === '9') echo 'selected'; ?>>Siamois</option>
+                <option value="10" data-group="2" <?php if (isset($_POST['race']) && $_POST['race'] === '10') echo 'selected'; ?>>Persan</option>
             </select>
         </div>
         <!-- Script qui adapte le select race en fonction du select espece -->
@@ -161,11 +155,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h3 class="titreform d-inline">Pucé</h3>
             <div class="divpuce d-inline">
                 <div class="boutonpuce ms-2 d-inline">
-                    <input type="radio" id="ouiradio" name="funradio" value="oui">
+                    <input type="radio" id="ouiradio" name="funradio" value="1">
                     <label for="oui">Oui</label>
                 </div>
                 <div class="boutonpuce ms-2 d-inline">
-                    <input type="radio" id="nonradio" name="funradio" value="non">
+                    <input type="radio" id="nonradio" name="funradio" value="0">
                     <label for="non">Non</label>
                 </div>
             </div>
@@ -175,10 +169,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h3 class="titreform d-inline">Tatoué</h3>
             <div class="divpuce d-inline">
                 <div class="boutonpuce ms-2 d-inline">
-                    <input type="radio" id="ouiradio" name="tattooradio" value="oui"> <label for="oui">Oui</label>
+                    <input type="radio" id="ouiradio" name="tattooradio" value="1"> <label for="oui">Oui</label>
                 </div>
                 <div class="boutonpuce ms-2 d-inline">
-                    <input type="radio" id="nonradio" name="tattooradio" value="non">
+                    <input type="radio" id="nonradio" name="tattooradio" value="0">
                     <label for="non">Non</label>
                 </div>
             </div>
@@ -188,11 +182,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h3 class="titreform d-inline">Sexe</h3>
             <div class="divpuce d-inline">
                 <div class="boutonpuce ms-2 d-inline">
-                    <input type="radio" id="ouiradio" name="radiosexe" value="oui">
+                    <input type="radio" id="ouiradio" name="radiosexe" value="1">
                     <label for="oui">Mâle</label>
                 </div>
                 <div class="boutonpuce ms-2 d-inline">
-                    <input type="radio" id="nonradio" name="radiosexe" value="non">
+                    <input type="radio" id="nonradio" name="radiosexe" value="0">
                     <label for="non">Femelle</label>
                 </div>
             </div>
@@ -200,5 +194,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="submit" class="btn boutonform">Envoyer</button>
     </form>
 </div>
+<!-- Connexion à la base de données -->
+<?php
+require_once "../helpers/database.php";
+
+// Obtenez les valeurs du formulaire
+$nom_animal = $_POST['nom_animal'];
+$date_arrivee = $_POST['date_arrivee'];
+$puce = $_POST['funradio'];
+$tatouage = $_POST['tattooradio'];
+$sexe = $_POST['radiosexe'];
+$id_race = $_POST['race'];
+$id_couleur = $_POST['couleur'];
+$id_espece = $_POST['espece'];
+
+try {
+    // Créez une instance de la classe Database
+    $db = new Database();
+
+    // Obtenez une instance de la classe PDO
+    $pdo = $db->createInstancePDO();
+
+    // Requête SQL avec les valeurs
+    $sql = "INSERT INTO animal (Nom, Date_d_arrivee, Puce, Tatouage, Sexe, ID_RACE, ID_COULEUR, ID_ESPECE)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+    // Préparez la requête
+    $stmt = $pdo->prepare($sql);
+
+    // Exécutez la requête avec les valeurs
+    $stmt->execute([$nom_animal, $date_arrivee, $puce, $tatouage, $sexe, $id_race, $id_couleur, $id_espece]);
+
+    echo "L'animal a été inséré avec succès.";
+} catch (PDOException $exception) {
+    echo "Erreur lors de l'insertion de l'animal : " . $exception->getMessage();
+}
+?>
 
 <?php include "components/footer.php" ?>
