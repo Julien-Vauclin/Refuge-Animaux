@@ -124,6 +124,12 @@ button.cmn_btn {
   justify-content: space-between;
   margin-right: 25px;
   margin-left: 25px;
+}
+.pucetatouage{
+  display: flex;
+  justify-content: space-between;
+  margin-right: 25px;
+  margin-left: 25px;
   margin-bottom: 20px;
 }
 .nom{
@@ -199,4 +205,15 @@ button.cmn_btn {
 .radiopuce{
   margin-top: 48px;
   margin-bottom: 28px;
+}
+.rangee{
+  margin-top: 50px;
+}
+.card{
+  margin-bottom: 50px;
+  width: 500px;
+  margin: 0 auto;
+}
+.image{
+  margin: 0 auto;
 }
